@@ -1,0 +1,58 @@
+🔬 Conceptual Questions & Answers (Simple & Short)
+What are outliers, and why do we remove them?
+Outliers are values that are very different from the rest of the data. We remove them because they can affect analysis and give misleading results.
+
+What is the IQR method, and how does it help in identifying outliers?
+IQR (Interquartile Range) is the range between Q1 (25%) and Q3 (75%). We use it to find outliers beyond 1.5 × IQR from the quartiles.
+
+Why did you choose 1.5 × IQR? Can it be changed?
+1.5 × IQR is a standard rule to detect mild outliers. Yes, it can be changed if needed (e.g., 3 × IQR for extreme outliers).
+
+How does removing outliers affect your analysis?
+It makes the data cleaner and improves accuracy in graphs or models.
+
+What’s the difference between statistical outliers and visual outliers?
+Statistical outliers are removed using methods like IQR. Visual outliers may still show in a boxplot even after that, based on the new IQR.
+
+What other methods can detect outliers?
+Z-score, Isolation Forest, DBSCAN, or manual domain-based limits.
+
+🧪 Practical/Code-Based Questions & Answers
+Explain the remove_outliers function.
+It finds Q1, Q3, and IQR, then removes values below Q1 - 1.5*IQR and above Q3 + 1.5*IQR.
+
+Why create a new DataFrame?
+To avoid issues with NaNs (gaps) in the original data and make seaborn plot correctly.
+
+Why do you still see dots in the boxplot?
+Those are not global outliers—they are points above the whisker in the cleaned data. Seaborn shows them as fliers.
+
+What does plt.ylim(0, 25) do?
+It fixes the y-axis range to always show from 0 to 25, for consistent viewing.
+
+What if so2 has NaN values?
+We should use dropna() before or during cleaning: series.dropna().
+
+How do you know outliers were removed?
+By checking the length before and after cleaning and by printing the new min and max values.
+
+Let me know if you want a printable version or to add explanation for the visualization-based or bonus questions too!
+
+You said:
+give of visualization also
+ChatGPT said:
+Sure! Here's the simple and short Q&A for Visualization & Interpretation questions related to your practical:
+
+📊 Visualization & Interpretation – Simple Answers
+What does the boxplot tell us about the distribution of SO₂ levels?
+It shows the spread of data, the median, and any possible outliers. The box represents the middle 50% of the values.
+
+What does the presence or absence of fliers (dots) mean?
+If dots (fliers) are shown, it means there are values higher or lower than the expected range based on IQR.
+
+How can you customize the boxplot to make it more informative?
+You can change colors, rotate labels, add titles, hide outliers (showfliers=False), or set a fixed y-axis range.
+
+How would you present this analysis in a report or dashboard?
+I would add a title, label axes, remove fliers if needed, and explain in one line that outliers were removed to show a clean distribution.
+
